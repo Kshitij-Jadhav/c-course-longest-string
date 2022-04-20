@@ -3,20 +3,18 @@
 #include <string.h>
 
 int main(int argc,char *argv[]) {
-	int stringIndex,longestStringLenght;
+	int longestStringIndex;
 	if(argc<=1) {
 		puts("enmpty string");
 	}
 	else {
-		stringIndex=1;
-		longestStringLenght=strlen(argv[1]);
+		longestStringIndex=1;
 		for(int i=2;i<argc;i++) {
-			if(strlen(argv[i])>longestStringLenght) {
-				stringIndex=i;
-				longestStringLenght=strlen(argv[i]);
+			if(strlen(argv[i])>strlen(argv[longestStringIndex])) {
+				longestStringIndex=i;
 			}
 		}
 	}
-	printf("%s\n",argv[stringIndex]);
+	printf("%s\n",argv[longestStringIndex]);
 	return EXIT_SUCCESS;
 }
