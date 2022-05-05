@@ -3,19 +3,18 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
-	int longestStringIndex = 1;
-	if (argc <= 1) {
-		puts("empty string");
-	}else {
-		int longestStringLength,currentStringLength;
-		for (int i = 2; i < argc; i++) {
-			longestStringLength = strlen(argv[longestStringIndex]);
-			currentStringLength = strlen(argv[i]);
+	char *longestString = "";
+	if (argc > 1) {
+		int longestStringIndex = 1;;
+		for (int currentStringIndex = 2; currentStringIndex < argc; currentStringIndex++) {
+			int longestStringLength = strlen(argv[longestStringIndex]);
+			int currentStringLength = strlen(argv[currentStringIndex]);
 			if (currentStringLength > longestStringLength) {
-				longestStringIndex = i;
+				longestStringIndex = currentStringIndex;
 			}
 		}
+		longestString = argv[longestStringIndex];
 	}
-	puts(argv[longestStringIndex]);
+	puts(longestString);
 	return EXIT_SUCCESS;
 }
